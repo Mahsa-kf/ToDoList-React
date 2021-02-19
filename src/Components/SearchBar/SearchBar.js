@@ -3,16 +3,22 @@ import "./SearchBar.css"
 
 
 const SearchBar = () => {  
-    const [searchValue, setSearchValue] = useState("the search value")
+    const [searchValue, setSearchValue] = useState("")
    
     const handleInputChange = (event) => {
      setSearchValue(event.target.value) 
     }
 
+    const handleClearClick = () => {
+        setSearchValue("")
+    }
+
+    const shouldDisplayButton = searchValue.length > 0
+
     return (                 
         <div>
             <input type="text" value={searchValue} onChange={handleInputChange} />
-            {searchValue}
+            {(shouldDisplayButton) && <button onClick={handleClearClick}>clear</button>}
         </div>       
     )
 }
