@@ -1,25 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from "react";
 import "./CountButton.css" 
 
 
 
 // function CountButton(){}
 const CountButton = (props) => { //prop is a value passed in a component if want to have different increment by in our countbutton or component.
-    console.log(props.incrementBy)
-
+    
     const [currentCount, setCurrentCount] = useState(0)
 
-    const handleClick = () => {
-        
+    const handleClick = () => {        
         setCurrentCount(currentCount + props.incrementBy)                
     }
 
+    useEffect(() => {
+       if (currentCount === 20) {
+           setCurrentCount(0)
+       }
+    }, [currentCount])
 
-     const buttonStyle = {
-         background: props.buttonColor,
-         borderRadius: props.borderRadius,
 
-     }
+    return (
+        <div /*style={divStyle}*/>
+            <button  onClick={handleClick}>+{props.incrementBy}</button>
+            <div className="count-display">{currentCount}</div>
+        </div>
+        )
+    }
+    
+    export default CountButton
+
+
+    //  const buttonStyle = {
+    //      background: props.buttonColor,
+    //      borderRadius: props.borderRadius,
+
+    //  }
 
     /* Styling in react : style Object
     const divStyle = {
@@ -37,12 +52,3 @@ const CountButton = (props) => { //prop is a value passed in a component if want
 
 
 
-    return (
-    <div /*style={divStyle}*/>
-        <button style={buttonStyle} onClick={handleClick}>+{props.incrementBy}</button>
-        <div className="count-display">{currentCount}</div>
-    </div>
-    )
-}
-
-export default CountButton
