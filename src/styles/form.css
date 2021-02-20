@@ -1,0 +1,46 @@
+input, select {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    margin: 1rem 0;
+    width: 80%;
+    min-width: 30rem;
+}
+
+select { 
+    width: 81% !important;
+    min-width: 32rem !important;
+}
+
+label {
+    display: inline-block;
+    width:15%;
+    min-width: 8rem;
+    font-weight: 600;
+}
+
+.btn-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+
+button {
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    width: 8rem;
+    margin: 1rem;
+    text-align: center;
+}
+
+.btn-delete {
+    background: red;
+}
+
+.btn-save {
+    background: green;
+}
+
+.btn-cancel {
+    background: gray;
+}
