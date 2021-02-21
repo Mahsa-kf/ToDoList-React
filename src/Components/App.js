@@ -7,8 +7,8 @@ const App = () => {
     return (
         <div className="main"> 
                        
-            { <CategoryForm/> }
-            {/* { <TaskForm/> }  */}
+            {/* { <CategoryForm/> } */}
+            { <TaskForm/> } 
         </div>                                                       
     )
 }

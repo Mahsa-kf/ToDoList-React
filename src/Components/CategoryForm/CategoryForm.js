@@ -20,7 +20,8 @@ const CategoryForm = (props) => {
       body: JSON.stringify(category),
       headers: { 'Content-Type': 'application/json' },
     })
-    // .then(json => setCategory(json))
+    // .then(response  => response .json())
+    // .then(data  => setCategory(data))
   }
   
   return (

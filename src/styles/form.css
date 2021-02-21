@@ -1,15 +1,28 @@
-input, select {
+.form-input {
     font-size: 1.5rem;
     padding: 0.4rem;
     margin: 1rem 0;
     width: 80%;
     min-width: 30rem;
+    display: inline-block;
+    border: solid 1px hsl(0, 0%, 80%);
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-select { 
+.select-input {
+    padding: 0 !important;
+    border: none  !important;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}
+
+/* .form-input select { 
     width: 81% !important;
     min-width: 32rem !important;
-}
+} */
 
 label {
     display: inline-block;
