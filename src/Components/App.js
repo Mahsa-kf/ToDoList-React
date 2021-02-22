@@ -1,14 +1,15 @@
-import React, {useState, useEffect} from "react"
+import React from "react"
 import CategoryForm from "./CategoryForm/CategoryForm.js"
 import TaskForm from "./TaskForm/TaskForm.js"
-
+import TaskList from "./TaskList/TaskList.js"
 const App = () => {  
 
     return (
         <div className="main"> 
                        
             {/* { <CategoryForm/> } */}
-            { <TaskForm/> } 
+            {/* { <TaskForm/> }  */}
+            <TaskList/>
         </div>                                                       
     )
 }

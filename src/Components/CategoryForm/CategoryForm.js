@@ -31,6 +31,7 @@ const CategoryForm = (props) => {
         <div>
           <label htmlFor="">Category:</label>
           <input type='text' 
+            className="form-input"
             id="categoryTitle" 
             name="categoryTitle" 
             placeholder='Category title' 
@@ -41,18 +42,18 @@ const CategoryForm = (props) => {
         <div>
           <label>Color:</label>
           <select id="color" 
+              className="form-input"
               name="color"  
               value={category.color} 
-              onChange={onInputChange} 
-              style={{ color: category.color }}>
+              onChange={onInputChange}>
             <option value="" style={{ color: 'black' }}>Please select a color</option>
-            <option value="red" style={{ color: 'red' }}>red</option>
-            <option value="blue" style={{ color: 'blue' }}>blue</option>
-            <option value="orange" style={{ color: 'orange' }}>Orange</option>
-            <option value="pink" style={{ color: 'pink' }}>pink</option>
-            <option value="green" style={{ color: 'green' }}>Green</option>
-            <option value="Purple" style={{ color: 'Purple' }}>Purple</option>
-            <option value="yellow" style={{ color: 'yellow' }}>yellow</option>
+            <option value="#f7170059" style={{ color: 'red' }}>red</option>
+            <option value="#5dadff59" style={{ color: 'blue' }}>blue</option>
+            <option value="#ffb38e" style={{ color: 'orange' }}>Orange</option>
+            <option value="#ffb0dc" style={{ color: 'pink' }}>pink</option>
+            <option value="#76ff5d59" style={{ color: 'green' }}>Green</option>
+            <option value="#8d5fff59#" style={{ color: 'Purple' }}>Purple</option>
+            <option value="#fff89f" style={{ color: 'yellow' }}>yellow</option>
           </select>
         </div>
       </form>

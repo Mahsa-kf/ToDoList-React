@@ -1,0 +1,30 @@
+.task-box{
+    opacity: 0.8;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.row {
+    padding: 0.2rem 0;
+}
+
+.task-col-1 {
+    width: 45%;
+    display: inline-block;
+}
+
+.task-col-2 {
+    width: 30%;
+    display: inline-block;
+}
+.task-col-3 {
+    width: 25%;
+    display: inline-block;
+}
+
+
+.fa {
+    padding: 0 1rem;
+}

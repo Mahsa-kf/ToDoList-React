@@ -26,3 +26,15 @@ h1 {
     text-transform: uppercase;
     margin: 2rem 0 4rem 0;
 }
+
+h4 {
+    margin: 0.3rem 0;  
+}
+
+.inline {
+    display: inline-block;
+}
+
+.float-right {
+    float: right;
+}

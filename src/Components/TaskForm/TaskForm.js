@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { TASK_STATES } from '../../models/taskStates'
+import { TASK_PRIORITIES } from '../../models/taskPriority'
+import Select from 'react-select'
 import './TaskForm.css'
 import '../../styles/form.css'
-import Select from 'react-select'
 
 
 const TaskForm = (props) => {
@@ -25,7 +27,7 @@ const TaskForm = (props) => {
 
   const onSelectChange = (event) => {
     //when any input changed, update task state
-    task[event.label] = event.value
+    task[event?.label] = event?.value
     setTask(task)
   }
 
@@ -42,7 +44,7 @@ const TaskForm = (props) => {
       .then(data => setTask(data))
   }
 
-  const getCategories = (event) => {
+  const getCategories = () => {
     // Get the list the of Categories from WebApi to display in the Category drop down
     fetch('http://localhost:5673/api/Category/GetCategories', {
       method: 'GET',
@@ -56,20 +58,6 @@ const TaskForm = (props) => {
          setCategories(categoriesOptions);
       })
   }
-
-  const taskStates  = [
-    { value: '1', label: 'To Do' },
-    { value: '2', label: 'In Progress' },
-    { value: '3', label: 'Done' },
-    { value: '4', label: 'Canceled' }
-  ]
-
-  const taskPriorities  = [
-    { value: 'chocolate', label: 'Critical' },
-    { value: 'strawberry', label: 'High' },
-    { value: 'vanilla', label: 'Medium' },
-    { value: 'vanilla', label: 'Low' }
-  ]
 
   return (
     <div>
@@ -104,7 +92,7 @@ const TaskForm = (props) => {
               value={task.stateID} 
               isClearable="true"
               onChange={onSelectChange}          
-              options={taskStates}>
+              options={TASK_STATES}>
           </Select>
         </div>
         <div>
@@ -115,7 +103,7 @@ const TaskForm = (props) => {
               value={task.priorityID} 
               isClearable="true"
               onChange={onSelectChange}          
-              options={taskPriorities}>
+              options={TASK_PRIORITIES}>
           </Select>
         </div>
         <div>
