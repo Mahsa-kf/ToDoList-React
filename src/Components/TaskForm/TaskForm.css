@@ -1,0 +1,18 @@
+.category-input {
+    width: calc(80% - 80px) !important;
+}
+
+.category-btn-container {
+    padding-left: 10px;
+    font-size: 30px;
+}
+
+.category-btn {
+    /* width: 40px;
+    height: 40px; */
+    /* vertical-align: middle; */
+    /* margin: 5px; */
+    padding: 5px  !important;
+    vertical-align: middle;
+    cursor: pointer;
+}

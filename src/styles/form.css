@@ -1,5 +1,5 @@
 .form-input {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 0.4rem;
     margin: 1rem 0;
     width: 80%;
@@ -8,6 +8,7 @@
     border: solid 1px hsl(0, 0%, 80%);
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: "Open Sans","Arial";
 }
 
 .select-input {

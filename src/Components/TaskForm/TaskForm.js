@@ -30,9 +30,11 @@ const TaskForm = (props) => {
   // Will execute after page loaded (onLoad) 
   useEffect(() => {
     // Get the task id from URL 
-    let taskId = props.match.params.taskId
-    // Pass the taskId to getTask method to get task information from WebApi
-    getTask(taskId);
+    let TaskID = props.match.params.TaskID;
+    // If task id exist, pass the taskId to getTask method to get task information from WebApi
+    if (TaskID){
+      getTask(TaskID);
+    }
     // Get task category to display in the Task Category Drop Down
     getCategories();
   }, []);
@@ -109,6 +111,14 @@ const TaskForm = (props) => {
       })
   }
 
+  const openEditCategory = () => {
+    props.history.push(`/task/${task.TaskID}/category/${task.CategoryID}`)
+  }
+
+  const openAddCategory = () => {
+    props.history.push(`/task/${task.TaskID}/AddCategory`)
+  }
+
   const returnToTaskList = () => {
     // Return to the root page
     props.history.push('/')
@@ -129,7 +139,7 @@ const TaskForm = (props) => {
       <h1>Create Task</h1>
       <form className="todo-form">
         <div>
-          <label htmlFor="">Task Title:</label>
+          <label>Task Title:</label>
           <input type='text'
             className="form-input"
             id="title"
@@ -141,13 +151,18 @@ const TaskForm = (props) => {
         <div>
           <label>Category:</label>
           <Select id="categoryID"
-            className="form-input select-input"
+            className="form-input select-input category-input"
             name="CategoryID"
             value={categories?.find(x => x.value == task.CategoryID)}
             isClearable="true"
             onChange={onSelectChange}
             options={categories}>
           </Select>
+          <spam className="category-btn-container">
+            <i class="category-btn fa fa-plus" title="Add new Category" onClick={openAddCategory}></i>
+            <i class="category-btn fa fa-edit" title="Edit Selected Category
+            " onClick={openEditCategory}></i>
+          </spam>
         </div>
         <div>
           <label>State:</label>

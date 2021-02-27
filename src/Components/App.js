@@ -12,9 +12,10 @@ const App = () => {
         <div className="main">
             <Switch>
                 <Route exact path='/' component={TaskList} />
-                <Route exact path='/Task/:taskId' component={TaskForm} />
-                <Route exact path='/newTask' component={TaskForm} />
-                <Route exact path='/newCategory' component={CategoryForm} />
+                <Route exact path='/Task/:TaskID' component={TaskForm} />
+                <Route exact path='/AddTask' component={TaskForm} />
+                <Route exact path='/Task/:TaskID/AddCategory' component={CategoryForm} />
+                <Route exact path='/Task/:TaskID/Category/:CategoryID' component={CategoryForm} />
             </Switch>
         </div>
     )
