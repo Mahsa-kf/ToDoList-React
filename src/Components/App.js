@@ -14,6 +14,8 @@ const App = () => {
                 <Route exact path='/' component={TaskList} />
                 <Route exact path='/Task/:TaskID' component={TaskForm} />
                 <Route exact path='/AddTask' component={TaskForm} />
+                <Route exact path='/AddCategory' component={CategoryForm} />
+                <Route exact path='/Category/:CategoryID' component={CategoryForm} />
                 <Route exact path='/Task/:TaskID/AddCategory' component={CategoryForm} />
                 <Route exact path='/Task/:TaskID/Category/:CategoryID' component={CategoryForm} />
             </Switch>

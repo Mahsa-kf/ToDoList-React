@@ -13,7 +13,6 @@ const TaskForm = (props) => {
 
   //create task state
   const [task, setTask] = useState({
-    TaskID: null,
     Title: "",
     CategoryID: 0,
     PriorityID: 0,
@@ -116,7 +115,11 @@ const TaskForm = (props) => {
   }
 
   const openAddCategory = () => {
-    props.history.push(`/task/${task.TaskID}/AddCategory`)
+    if(task.TaskID){
+      props.history.push(`/task/${task.TaskID}/AddCategory`)
+    } else {
+      props.history.push(`/AddCategory`)
+    }
   }
 
   const returnToTaskList = () => {

@@ -7,7 +7,6 @@ const CategoryForm = (props) => {
 
   //create category state
   const [category, setCategory] = useState({
-    CategoryID: null,
     CategoryTitle: "",
     Color: ""
   })
@@ -82,7 +81,11 @@ const CategoryForm = (props) => {
     // Get taskId from URL
     const taskId = props.match.params.TaskID;
     // Navigate to the task
-    props.history.push('/task/'+ taskId)
+    if (taskId){
+      props.history.push('/task/'+ taskId)
+    } else {
+      props.history.push('/AddTask/')
+    }
 
   }
 
