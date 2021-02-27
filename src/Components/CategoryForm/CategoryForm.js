@@ -9,8 +9,7 @@ const CategoryForm = (props) => {
   const [category, setCategory] = useState({})
 
   const onInputChange = (event) => {
-    category[event.target.name] = event.target.value
-    setCategory(category)
+    setCategory({...category, [event.target.name]: event.target.value});
   }
 
   const save = (event) => {

@@ -8,15 +8,6 @@ import '../../styles/form.css'
 
 const TaskForm = (props) => {
 
-  // Will execute after page loaded (onLoad) 
-  useEffect(() => {
-    // Get the task id from URL 
-    let taskId = props.match.params.taskId
-    // Pass the taskId to getTask method to get task information from WebApi
-    getTask(taskId);
-    getCategories();
-  }, []);
-
   //create task categories state to update the list of categories when get from WebApi
   const [categories, setCategories] = useState(null)
 
@@ -36,31 +27,26 @@ const TaskForm = (props) => {
     Note: ""
   })
 
+  // Will execute after page loaded (onLoad) 
+  useEffect(() => {
+    // Get the task id from URL 
+    let taskId = props.match.params.taskId
+    // Pass the taskId to getTask method to get task information from WebApi
+    getTask(taskId);
+    // Get task category to display in the Task Category Drop Down
+    getCategories();
+  }, []);
 
-  const onInputChange = (event) => {
-    //when any input changed, update task state
-    task[event.target.name] = event.target.value
-    setTask(task)
-  }
-
-  const onSelectChange = (selected, action) => {
-
-    //when any input changed, update task state
-    task[action.name] = selected?.value
-    setTask(task)
-  }
-
-  const save = (event) => {
-    // the default action that belongs to the event will not occur
-    event.preventDefault()
-    // send the new task information to the webApi to save in the database
-    fetch('http://localhost:5673/api/Task/AddTask', {
-      method: 'POST',
-      body: JSON.stringify(task),
-      headers: { 'Content-Type': 'application/json' },
+  const getTask = (id) => {
+    // Get the task from WebApi by taskId from URL
+    fetch('http://localhost:5673/api/task/GetTask/' + id, {
+      method: 'GET',
+      headers: {},
     })
-      .then(response => response.json())
-      .then(data => setTask(data))
+      .then(response => response.json()) // Always same
+      .then(taskFromApi => {
+        setTask(taskFromApi);
+      })
   }
 
   const getCategories = () => {
@@ -78,16 +64,64 @@ const TaskForm = (props) => {
       })
   }
 
-  const getTask = (id) => {
+  const addTask = (event) => {
+    // the default action that belongs to the event will not occur
+    event.preventDefault()
+    // send the new task information to the webApi to save in the database
+    fetch('http://localhost:5673/api/Task/AddTask', {
+      method: 'POST',
+      body: JSON.stringify(task),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => {
+        response.json();
+      }).then(taskFromApi => {
+        returnToTaskList();
+      })
+  }
+
+  const updateTask = (event) => {
+    // the default action that belongs to the event will not occur
+    event.preventDefault()
+    // send the new task information to the webApi to save in the database
+    fetch('http://localhost:5673/api/Task/UpdateTask/' +  task.TaskID, {
+      method: 'POST',
+      body: JSON.stringify(task),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => {
+        response.json();
+      }).then(taskFromApi => {
+        returnToTaskList();
+      })
+  }
+
+  const deleteTask = () => {
     // Get the list the of Categories from WebApi to display in the Category drop down
-    fetch('http://localhost:5673/api/task/GetTask/' + id, {
-      method: 'GET',
+    fetch('http://localhost:5673/api/task/DeleteTask/' +  task.TaskID, {
+      method: 'POST',
       headers: {},
     })
-      .then(response => response.json()) // Always same
-      .then(taskFromApi => {
-        setTask(taskFromApi);
+      .then(response => {
+        response.json();
+      }).then(taskFromApi => {
+        returnToTaskList();
       })
+  }
+
+  const returnToTaskList = () => {
+    // Return to the root page
+    props.history.push('/')
+  }
+
+  const onInputChange = (event) => {
+    //when any input changed, update task 
+    setTask({...task, [event.target.name]: event.target.value})
+  }
+
+  const onSelectChange = (selected, action) => {
+    //when any input changed, update task 
+    setTask({...task, [action.name]: selected?.value})
   }
 
   return (
@@ -200,9 +234,17 @@ const TaskForm = (props) => {
       </form>
 
       <div className="btn-container">
-        <button className="btn-cancel">Cancel</button>
-        <button onClick={save} className="btn-save">Save</button>
-        <button className="btn-delete">Delete</button>
+        <button onClick={returnToTaskList} className="btn-cancel">Cancel</button>
+        { // if TaskId exist, then display UPDATE button, otherwise display SAVE button 
+          (task.TaskID)
+            ? <button onClick={ updateTask } className="btn-save">Update</button>
+            : <button onClick={ addTask } className="btn-save">Save</button>
+        }
+        { // display delete button only if the taskId is not null
+          (task.TaskID)
+            ? <button onClick={deleteTask} className="btn-delete">Delete</button>
+            : ""
+        }
       </div>
     </div>
   )
