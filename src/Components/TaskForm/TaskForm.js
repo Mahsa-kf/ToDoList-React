@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import Select from 'react-select'
+
 import { TASK_STATES } from '../../models/taskStates'
 import { TASK_PRIORITIES } from '../../models/taskPriority'
-import Select from 'react-select'
+
 import './TaskForm.css'
 import '../../styles/form.css'
 
@@ -139,7 +141,7 @@ const TaskForm = (props) => {
 
   return (
     <div>
-      <h1>Create Task</h1>
+      <h1>{task.TaskID ? "Edit TAsk" : "Add New Task"}</h1>
       <form className="todo-form">
         <div>
           <label>Task Title:</label>

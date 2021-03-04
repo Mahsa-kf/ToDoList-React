@@ -91,7 +91,7 @@ const CategoryForm = (props) => {
 
   return (
     <div>
-      <h1>Create Task Category</h1>
+      <h1>{category.CategoryID ? "Edit Task Category" : "Add New Task Category"}</h1>
       <form className="todo-form">
         <div>
           <label htmlFor="">Category:</label>

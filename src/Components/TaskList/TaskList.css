@@ -1,26 +1,40 @@
-.filter-container{
-    width: 31%;
+.filter-container {
+    width: calc(20% - 2rem);
+    min-width: 165px;
     padding-bottom: 1rem;
     display: inline-block;
 }
 
+.filter-select-container {
+    width: calc(30% - 2rem) !important;
+}
+
 .filter-label{
-    width: 90%;
+    width: 100%;
     font-size: 1.2rem;
 }
 .filter-input{
-    width: 90%;
+    width: 100%;
     height: 1.5rem;
     padding: 0.3rem 0.5rem;
     font-family: "Open Sans","Arial";
     font-size: 1.2rem;
 }
 
+.filter-container input {
+    border: solid 1px hsl(0, 0%, 80%);
+    color: #555555;
+}
+
+.due-date-input-container {
+    margin-right: 2rem;
+}
+
 .add-task-btn {
     font-size: 2.8rem !important;
-    color: green;
+    color: rgb(56, 168, 56);
     float: right;
-    margin-top: 1.4rem;
+    margin-top: 1.8rem;
     padding: 0;
     cursor: pointer;
 }
