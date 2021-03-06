@@ -16,9 +16,13 @@
 .filter-input{
     width: 100%;
     height: 1.5rem;
-    padding: 0.3rem 0.5rem;
     font-family: "Open Sans","Arial";
     font-size: 1.2rem;
+    padding: 0.3rem 0.5rem !important;
+}
+
+.select-input {
+    padding-left: 0 !important;
 }
 
 .filter-container input {
@@ -32,7 +36,7 @@
 
 .add-task-btn {
     font-size: 2.8rem !important;
-    color: rgb(56, 168, 56);
+    color: rgb(19, 170, 19);
     float: right;
     margin-top: 1.8rem;
     padding: 0;

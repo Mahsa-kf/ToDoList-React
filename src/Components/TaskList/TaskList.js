@@ -73,12 +73,13 @@ const TaskList = (props) => {
     
     
     return (
+
         <div>
             <form className="todo-filter-form">
                 <div className="filter-container filter-select-container">
                     <label className="filter-label">Task Category:</label>
                     <Select id="categoryID"
-                        className="filter-input"
+                        className="filter-input select-input"
                         name="CategoryID"
                         // value={categories?.find(x => x.value == task.CategoryID)}
                         isClearable="true"
@@ -89,7 +90,7 @@ const TaskList = (props) => {
                 <div className="filter-container filter-select-container">
                     <label className="filter-label">Task State:</label>
                     <Select id="stateID"
-                        className="filter-input"
+                        className="filter-input select-input"
                         name="StateID"
                         // value={TASK_STATES?.find(x => x.value == task.StateID)}
                         isClearable="true"
@@ -99,7 +100,7 @@ const TaskList = (props) => {
                 </div>
                 <div className="filter-container due-date-input-container">
                     <label className="filter-label">Due Date:</label>
-                    <input className="filter-input" 
+                    <input className="filter-input date-input" 
                         type='date'
                         id="DueDate"
                         name="DueDate"
@@ -110,7 +111,7 @@ const TaskList = (props) => {
                 </div>
                 <div className="filter-container">
                     <label className="filter-label">Planned Date:</label>
-                    <input className="filter-input" 
+                    <input className="filter-input date-input" 
                         type='date'
                         id="PlanedDate"
                         name="PlanedDate"

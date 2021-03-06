@@ -1,0 +1,66 @@
+.NavbarItems {
+    background: #413d6e;    
+    height: 80px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;    
+}
+
+.logo-container {
+    height: 80px;
+    line-height: 80px;
+    min-width: 220px;
+}
+
+.site-name {
+    color: #F2F2F2;
+    justify-self: start;
+    margin: 0px;
+    padding-left: 20px;
+    cursor: pointer;
+    display: inline-block;
+
+}
+
+.site-logo {
+    height: 40px;
+    display: inline-block;
+    margin-top: 19px;
+    vertical-align: top;
+}
+
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 50%;
+    justify-content: end;
+    margin-right: 2rem ;   
+}
+
+.nav-links {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-links:hover {
+    background-color: #6d76f7;
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+.nav-links-mobile{
+    display: none;
+}
+
+.user{
+    color: #F2D8A7;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
