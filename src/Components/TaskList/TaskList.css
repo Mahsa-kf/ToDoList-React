@@ -11,7 +11,7 @@
 
 .filter-label{
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .filter-input{
     width: 100%;
@@ -23,6 +23,12 @@
 
 .select-input {
     padding-left: 0 !important;
+}
+
+.date-input {
+    margin-top: 0.2rem;
+    font-size: 1rem;
+
 }
 
 .filter-container input {
@@ -38,7 +44,7 @@
     font-size: 2.8rem !important;
     color: rgb(19, 170, 19);
     float: right;
-    margin-top: 1.8rem;
+    margin-top: 1.4rem;
     padding: 0;
     cursor: pointer;
 }

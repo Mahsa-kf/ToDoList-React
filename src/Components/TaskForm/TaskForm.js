@@ -144,15 +144,6 @@ const TaskForm = (props) => {
       <h1>{task.TaskID ? "Edit TAsk" : "Add New Task"}</h1>
       <form className="todo-form">
         <div>
-          <label>Task Title:</label>
-          <input type='text'
-            className="form-input"
-            id="title"
-            name="Title"
-            value={task.Title}
-            onChange={onInputChange}
-          />
-        </div>
         <div>
           <label>Category:</label>
           <Select id="categoryID"
@@ -168,6 +159,15 @@ const TaskForm = (props) => {
             <i class="category-btn fa fa-edit" title="Edit Selected Category
             " onClick={openEditCategory}></i>
           </spam>
+        </div>
+          <label>Task Title:</label>
+          <input type='text'
+            className="form-input"
+            id="title"
+            name="Title"
+            value={task.Title}
+            onChange={onInputChange}
+          />
         </div>
         <div>
           <label>State:</label>

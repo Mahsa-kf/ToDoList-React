@@ -1,6 +1,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem; 
+    font-size: 1.2rem; 
     background: #dad8ec;    
     position: absolute;
     width: 100%;
@@ -23,12 +23,13 @@ body {
 }
 
 .main-content {
-    padding: 2rem 5vw;
+    padding: 3rem 3vw;
 }
 
 h1 {
     text-transform: uppercase;
-    margin: 2rem 0 4rem 0;
+    margin: 0.5rem 0 2rem 0;
+    font-size: 2rem;
 }
 
 h4 {
